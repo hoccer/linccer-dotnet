@@ -1,0 +1,25 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Linccer/Linccer.cs" ctype="Workbench">
+    <Files>
+      <File FileName="dotnet-api/MyClass.cs" Line="1" Column="1" />
+      <File FileName="SimpleDemo/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="SimpleDemo/SimpleDemo.cs" Line="11" Column="9" />
+      <File FileName="Linccer/Linccer.cs" Line="21" Column="9" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Linccer" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Linccer.cs" selected="True" />
+          </Node>
+          <Node name="SimpleDemo" expanded="True" />
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
