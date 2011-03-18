@@ -14,7 +14,7 @@ namespace LinccerApi
         public double latitude { get; set; }
         public double longitude { get; set; }
         public int accuracy { get; set; }
-        public string timestamp { get; set; }
+        public int timestamp { get; set; }
 
         
         

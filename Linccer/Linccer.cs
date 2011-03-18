@@ -27,16 +27,16 @@ namespace LinccerApi
         public void OnGpsChanged (Double lat, Double lon, int acc)
         {
             Console.WriteLine ("OnGpsChanged");
-
+            
             TimeSpan ts = DateTime.UtcNow - new DateTime (1970, 1, 1, 0, 0, 0);
-
-            Environment.gps = new LocationInfo { latitude = lat , longitude = lon, accuracy = acc, timestamp = ts.TotalSeconds.ToString()};
-
+            
+            Environment.gps = new LocationInfo { latitude = lat, longitude = lon, accuracy = acc, timestamp = (int)ts.TotalSeconds };
+            
             using (var client = new WebClient ()) {
                 
                 System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding ();
-                
-                client.UploadData ("http://linccer-beta.hoccer.com/v3/clients/" + ClientID + "/environment", "PUT", enc.GetBytes (Environment.ToString ()));
+                string uri = "http://linccer-beta.hoccer.com/v3/clients/" + ClientID + "/environment";
+                client.UploadData (Sign (uri), "PUT", enc.GetBytes (Environment.ToString ()));
             }
         }
 
@@ -51,12 +51,23 @@ namespace LinccerApi
             string sJSON = oSerializer.Serialize (payload);
             
             Console.WriteLine (sJSON);
+            using (var client = new WebClient ()) {
+                
+                System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding ();
+                string uri = "http://linccer-beta.hoccer.com/v3/clients/" + ClientID + "/action/one-to-many";
+                client.UploadData (Sign(uri), "PUT", enc.GetBytes (sJSON));
+            }
         }
 
         public T Receive<T> () where T : new()
         {
             Console.WriteLine ("Receive");
             return new T ();
+        }
+        private string Sign (string uri)
+        {
+            uri += "?api_key=e101e890ea97012d6b6f00163e001ab0";
+            return uri;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace LinccerApi
         }
 
         public LocationInfo gps { get; set; }
-        public LocationInfo network { get; set; }
+        //public LocationInfo network { get; set; }
 
         override public string ToString(){
 
