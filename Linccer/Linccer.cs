@@ -19,10 +19,8 @@ namespace LinccerApi
         public String Name { get; set; }
         public LinccerApi.Environment Environment { get; set; }
 
+        public ClientConfig Config { get; set; }
 
-        public string ClientID {
-            get { return "1122ffaa-8c99-49ee-b045-33d737cc50f9"; }
-        }
 
         public void OnGpsChanged (Double lat, Double lon, int acc)
         {
@@ -35,7 +33,7 @@ namespace LinccerApi
             using (var client = new WebClient ()) {
                 
                 System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding ();
-                string uri = "http://linccer-beta.hoccer.com/v3/clients/" + ClientID + "/environment";
+                string uri = Config.ClientUri + "/environment";
                 client.UploadData (Sign (uri), "PUT", enc.GetBytes (Environment.ToString ()));
             }
         }
@@ -54,7 +52,7 @@ namespace LinccerApi
             using (var client = new WebClient ()) {
                 
                 System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding ();
-                string uri = "http://linccer-beta.hoccer.com/v3/clients/" + ClientID + "/action/one-to-many";
+                string uri = Config.ClientUri + "/action/one-to-many";
                 client.UploadData (Sign (uri), "PUT", enc.GetBytes (sJSON));
             }
         }
@@ -66,18 +64,18 @@ namespace LinccerApi
             using (var client = new WebClient ()) {
                 
                 System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding ();
-                string uri = "http://linccer-beta.hoccer.com/v3/clients/" + ClientID + "/action/one-to-many";
+                string uri = Config.ClientUri + "/action/one-to-many";
                 string json = client.DownloadString (Sign (uri));
-                if(json == null)
+                if (json == null)
                     return default(T);
-
+                
                 System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer ();
-
+                
                 Console.WriteLine ("Received: " + json);
                 return oSerializer.Deserialize<T[]> (json)[0];
             }
             
-
+            
         }
 
         private string Sign (string uri)
