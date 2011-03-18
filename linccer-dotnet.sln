@@ -34,7 +34,7 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 		$1.TextStylePolicy = $4
-		$4.FileWidth = 100
+		$4.FileWidth = 20
 		$4.RemoveTrailingWhitespace = True
 		$4.EolMarker = Unix
 		$4.inheritsSet = VisualStudio

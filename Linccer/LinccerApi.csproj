@@ -37,6 +37,8 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Linccer.cs" />
+    <Compile Include="Environment.cs" />
+    <Compile Include="LocationInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
