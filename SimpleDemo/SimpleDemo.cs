@@ -26,6 +26,7 @@ namespace SimpleDemo
         {
             Linccer linccer = new Linccer ("Demo App");
             linccer.Config = new ClientConfig();
+        //linccer.Config.UseBetaServers();
             linccer.OnGpsChanged (52.5157, 13.4090, 1000);
             //linccer.Share ("one-to-one", new Data { Message = "Hello world" });
             Data receivedMessage = linccer.Receive<Data>();

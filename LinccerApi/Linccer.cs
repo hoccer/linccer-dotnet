@@ -1,6 +1,8 @@
 
 using System;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 
 
 namespace LinccerApi
@@ -80,8 +82,12 @@ namespace LinccerApi
 
 		private string Sign (string uri)
 		{
-			uri += "?api_key=Config.ApiKey";
-			return uri;
+
+			uri += "?api_key=" + Config.ApiKey;
+            HMACSHA1 hasher = new HMACSHA1(Encoding.ASCII.GetBytes(Config.SharedSecret));
+            byte[] signature = hasher.ComputeHash(Encoding.ASCII.GetBytes(uri));
+
+			return uri + "&signature=" + Convert.ToBase64String( signature);
 		}
 	}
 }
