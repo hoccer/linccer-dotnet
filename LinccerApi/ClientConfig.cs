@@ -10,6 +10,8 @@ namespace LinccerApi
 
         public ClientConfig ()
         {
+
+            ClientId = Guid.NewGuid().ToString();
             UseSandboxServers ();
             useDemoApiKey ();
         }
@@ -20,9 +22,7 @@ namespace LinccerApi
 
         public string LinccerUri { get; set; }
 
-        public string ClientId {
-            get { return "1122ffaa-8c99-49ee-b045-33d737cc50f9"; }
-        }
+        public string ClientId { get; set; }
 
         public string ApiKey { get; set; }
         public string SharedSecret { get; set; }
