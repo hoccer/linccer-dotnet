@@ -58,34 +58,26 @@ namespace LinccerApi
 
         public T Receive<T> (string mode) where T : new()
         {
-            
-            
             using (var client = new WebClient ()) {
-
-                
                 string uri = Config.ClientUri + "/action/" + mode;
                 string json = client.DownloadString (Sign (uri));
                 if (json == null || json == "")
                     return default(T);
                 
                 System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer ();
-
-                Console.WriteLine ("Received: " + json);
                 return oSerializer.Deserialize<T[]> (json)[0];
             }
-            
             
         }
 
         private string Sign (string uri)
         {
-            
             uri += "?api_key=" + Config.ApiKey;
             uri += "&timestamp=" + Config.TimeNow;
             HMACSHA1 hasher = new HMACSHA1 (Encoding.ASCII.GetBytes (Config.SharedSecret));
             byte[] signature = hasher.ComputeHash (Encoding.ASCII.GetBytes (uri));
             
-            return uri + "&signature=" + HttpUtility.UrlEncode(Convert.ToBase64String (signature));
+            return uri + "&signature=" + HttpUtility.UrlEncode (Convert.ToBase64String (signature));
         }
     }
 }

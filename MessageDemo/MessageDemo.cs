@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using LinccerApi;
 
 namespace MessageDemo
@@ -14,11 +15,11 @@ namespace MessageDemo
         public int Timestamp {
             get {
                 TimeSpan ts = DateTime.UtcNow - new DateTime (1970, 1, 1, 0, 0, 0);
-
-                return (int) ts.TotalSeconds;
+                
+                return (int)ts.TotalSeconds;
             }
         }
-
+        
     }
 
     class MessageDemo
@@ -30,6 +31,10 @@ namespace MessageDemo
             //linccer.Config.UseBetaServers();
             linccer.OnGpsChanged (52.5157, 13.409, 1000);
             
+            for (int i = 3; i > 0; i--){
+                System.Console.Write(i + "... " );
+                Thread.Sleep (1 * 1000);
+            }
 
             if (args.Length > 0) {
                 linccer.Share ("one-to-one", new Data { Message = args[0] });
