@@ -34,7 +34,7 @@ namespace MessageDemo
             if (args.Length > 0) {
                 linccer.Share ("one-to-one", new Data { Message = args[0] });
             } else {
-                Data receivedMessage = linccer.Receive<Data> ();
+                Data receivedMessage = linccer.Receive<Data> ("one-to-one");
                 if (receivedMessage == null)
                     System.Console.WriteLine ("Nothing received");
                 else

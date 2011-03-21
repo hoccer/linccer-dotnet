@@ -3,6 +3,7 @@ using System;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 
 
 namespace LinccerApi
@@ -50,19 +51,19 @@ namespace LinccerApi
             using (var client = new WebClient ()) {
                 
                 System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding ();
-                string uri = Config.ClientUri + "/action/one-to-many";
+                string uri = Config.ClientUri + "/action/" + mode;
                 client.UploadData (Sign (uri), "PUT", enc.GetBytes (sJSON));
             }
         }
 
-        public T Receive<T> () where T : new()
+        public T Receive<T> (string mode) where T : new()
         {
             
             
             using (var client = new WebClient ()) {
 
                 
-                string uri = Config.ClientUri + "/action/one-to-many";
+                string uri = Config.ClientUri + "/action/" + mode;
                 string json = client.DownloadString (Sign (uri));
                 if (json == null || json == "")
                     return default(T);
@@ -80,11 +81,11 @@ namespace LinccerApi
         {
             
             uri += "?api_key=" + Config.ApiKey;
-            //uri += "&timestamp=" + Config.TimeNow;
+            uri += "&timestamp=" + Config.TimeNow;
             HMACSHA1 hasher = new HMACSHA1 (Encoding.ASCII.GetBytes (Config.SharedSecret));
             byte[] signature = hasher.ComputeHash (Encoding.ASCII.GetBytes (uri));
             
-            return uri + "&signature=" + Convert.ToBase64String (signature);
+            return uri + "&signature=" + HttpUtility.UrlEncode(Convert.ToBase64String (signature));
         }
     }
 }
