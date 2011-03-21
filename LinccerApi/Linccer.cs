@@ -28,9 +28,9 @@ namespace LinccerApi
 		{
 			Console.WriteLine ("OnGpsChanged");
 			
-			TimeSpan ts = DateTime.UtcNow - new DateTime (1970, 1, 1, 0, 0, 0);
+
 			
-			Environment.gps = new LocationInfo { latitude = lat, longitude = lon, accuracy = acc, timestamp = (int)ts.TotalSeconds };
+			Environment.gps = new LocationInfo { latitude = lat, longitude = lon, accuracy = acc, timestamp = Config.TimeNow };
 			
 			using (var client = new WebClient ()) {
 				
@@ -84,6 +84,7 @@ namespace LinccerApi
 		{
 
 			uri += "?api_key=" + Config.ApiKey;
+            uri += "&timestamp=" + Config.TimeNow;
             HMACSHA1 hasher = new HMACSHA1(Encoding.ASCII.GetBytes(Config.SharedSecret));
             byte[] signature = hasher.ComputeHash(Encoding.ASCII.GetBytes(uri));
 

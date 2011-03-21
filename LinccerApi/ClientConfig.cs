@@ -11,7 +11,7 @@ namespace LinccerApi
         public ClientConfig ()
         {
             UseSandboxServers ();
-            useDemoApiKey();
+            useDemoApiKey ();
         }
 
         public string ClientUri {
@@ -26,6 +26,12 @@ namespace LinccerApi
 
         public string ApiKey { get; set; }
         public string SharedSecret { get; set; }
+        public int TimeNow {
+            get {
+                TimeSpan ts = DateTime.UtcNow - new DateTime (1970, 1, 1, 0, 0, 0);
+                return (int)ts.TotalSeconds;
+            }
+        }
 
         public void UseBetaServers ()
         {
@@ -38,9 +44,10 @@ namespace LinccerApi
             SharedSecret = "JofbFD6w6xtNYdaDgp4KOXf/k/s=";
         }
 
-        public void UseSandboxServers() {
-        LinccerUri = "https://linccer-sandbox.hoccer.com/v3";
-
-    }
+        public void UseSandboxServers ()
+        {
+            LinccerUri = "https://linccer-sandbox.hoccer.com/v3";
+            
+        }
     }
 }
