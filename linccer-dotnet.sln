@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDemo", "SimpleDemo\SimpleDemo.csproj", "{907F742E-1ABF-4F5E-AB73-9CCB05669400}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linccer", "Linccer\Linccer.csproj", "{D6E77E24-BBC0-4A8B-B5D6-9DC14800A65A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinccerApi", "LinccerApi\LinccerApi.csproj", "{D6E77E24-BBC0-4A8B-B5D6-9DC14800A65A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
