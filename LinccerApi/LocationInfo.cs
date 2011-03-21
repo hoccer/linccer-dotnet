@@ -10,7 +10,9 @@ namespace LinccerApi
 
         public LocationInfo ()
         {
+            timestamp = Utils.TimeNow;
         }
+
         public double latitude { get; set; }
         public double longitude { get; set; }
         public int accuracy { get; set; }

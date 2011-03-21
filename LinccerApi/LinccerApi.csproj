@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D6E77E24-BBC0-4A8B-B5D6-9DC14800A65A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Linccer</RootNamespace>
+    <RootNamespace>LinccerApi</RootNamespace>
     <AssemblyName>Linccer</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
@@ -40,6 +40,7 @@
     <Compile Include="Environment.cs" />
     <Compile Include="LocationInfo.cs" />
     <Compile Include="ClientConfig.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

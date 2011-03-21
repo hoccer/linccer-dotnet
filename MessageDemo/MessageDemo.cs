@@ -12,14 +12,7 @@ namespace MessageDemo
         }
 
         public string Message { get; set; }
-        public int Timestamp {
-            get {
-                TimeSpan ts = DateTime.UtcNow - new DateTime (1970, 1, 1, 0, 0, 0);
-                
-                return (int)ts.TotalSeconds;
-            }
-        }
-        
+               
     }
 
     class MessageDemo
@@ -29,13 +22,13 @@ namespace MessageDemo
             Linccer linccer = new Linccer ("Demo App");
             linccer.Config = new ClientConfig ();
             //linccer.Config.UseBetaServers();
-            linccer.OnGpsChanged (52.5157, 13.409, 1000);
-            
-            for (int i = 3; i > 0; i--){
-                System.Console.Write(i + "... " );
+            linccer.Gps = new LocationInfo { latitude = 52.5157, longitude = 13.409, accuracy = 1000 };
+
+            for (int i = 3; i > 0; i--) {
+                System.Console.Write (i + "... ");
                 Thread.Sleep (1 * 1000);
             }
-
+            
             if (args.Length > 0) {
                 linccer.Share ("one-to-one", new Data { Message = args[0] });
             } else {

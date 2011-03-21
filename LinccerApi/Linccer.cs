@@ -24,14 +24,17 @@ namespace LinccerApi
 
         public ClientConfig Config { get; set; }
 
+        public LocationInfo Gps {
+            set { Environment.gps = value; }
+        }
 
         public void OnGpsChanged (Double lat, Double lon, int acc)
         {
             Console.WriteLine ("OnGpsChanged");
             
             
-            
-            Environment.gps = new LocationInfo { latitude = lat, longitude = lon, accuracy = acc, timestamp = Config.TimeNow };
+
+            Environment.gps = new LocationInfo { latitude = lat, longitude = lon, accuracy = acc, timestamp = Utils.TimeNow };
             
             using (var client = new WebClient ()) {
                 
@@ -73,7 +76,7 @@ namespace LinccerApi
         private string Sign (string uri)
         {
             uri += "?api_key=" + Config.ApiKey;
-            uri += "&timestamp=" + Config.TimeNow;
+            uri += "&timestamp=" + Utils.TimeNow;
             HMACSHA1 hasher = new HMACSHA1 (Encoding.ASCII.GetBytes (Config.SharedSecret));
             byte[] signature = hasher.ComputeHash (Encoding.ASCII.GetBytes (uri));
             
