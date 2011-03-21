@@ -1,20 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Linccer/Linccer.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SimpleDemo/MessageDemo.cs" ctype="Workbench">
     <Files>
       <File FileName="SimpleDemo/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="SimpleDemo/SimpleDemo.cs" Line="1" Column="1" />
-      <File FileName="Linccer/Linccer.cs" Line="49" Column="51" />
-      <File FileName="Linccer/Environment.cs" Line="1" Column="1" />
-      <File FileName="Linccer/LocationInfo.cs" Line="1" Column="1" />
-      <File FileName="Linccer/ClientConfig.cs" Line="1" Column="1" />
+      <File FileName="SimpleDemo/MessageDemo.cs" Line="21" Column="1" />
+      <File FileName="LinccerApi/ClientConfig.cs" Line="20" Column="35" />
+      <File FileName="LinccerApi/Linccer.cs" Line="69" Column="17" />
+      <File FileName="Hoccer/Hoccer.cs" Line="2" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Linccer" expanded="True" />
-          <Node name="SimpleDemo" expanded="True">
-            <Node name="SimpleDemo.cs" selected="True" />
+          <Node name="Hoccer" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="LinccerApi" expanded="True" />
+          <Node name="MessageDemo" expanded="True" selected="True">
+            <Node name="References" expanded="True" />
           </Node>
         </State>
       </Pad>
