@@ -32,7 +32,7 @@ namespace LinccerApi
 
         public void UseBetaServers ()
         {
-            LinccerUri = "https://linccer-beta.hoccer.com/v3";
+            LinccerUri = "http://linccer-beta.hoccer.com/v3";
             
         }
         private void useDemoApiKey ()

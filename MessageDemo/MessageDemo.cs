@@ -12,7 +12,7 @@ namespace MessageDemo
         }
 
         public string Message { get; set; }
-               
+
     }
 
     class MessageDemo
@@ -21,8 +21,9 @@ namespace MessageDemo
         {
             Linccer linccer = new Linccer ("Demo App");
             linccer.Config = new ClientConfig ();
-            //linccer.Config.UseBetaServers();
-            linccer.Gps = new LocationInfo { latitude = 52.5157, longitude = 13.409, accuracy = 1000 };
+            linccer.Config.UseBetaServers();
+            linccer.Gps = new LocationInfo { Latitude = 52.5157, Longitude = 13.409, Accuracy = 1000 };
+            linccer.SubmitEnvironment();
 
             for (int i = 3; i > 0; i--) {
                 System.Console.Write (i + "... ");

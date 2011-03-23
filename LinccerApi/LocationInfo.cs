@@ -1,22 +1,28 @@
 
 using System;
+using System.Runtime.Serialization;
 
 namespace LinccerApi
 {
 
 
+[DataContract]
     public class LocationInfo
     {
 
         public LocationInfo ()
         {
-            timestamp = Utils.TimeNow;
+            Timestamp = Utils.TimeNow;
         }
 
-        public double latitude { get; set; }
-        public double longitude { get; set; }
-        public int accuracy { get; set; }
-        public int timestamp { get; set; }
+ [DataMember(Name = "latitute")]
+        public double Latitude { get; set; }
+        [DataMember(Name = "longitude")]
+        public double Longitude { get; set; }
+        [DataMember(Name = "accuracy")]
+        public int Accuracy { get; set; }
+        [DataMember(Name = "timestamp")]
+        public int Timestamp { get; set; }
 
         
         

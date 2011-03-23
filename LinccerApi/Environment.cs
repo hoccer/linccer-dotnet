@@ -1,10 +1,14 @@
 
 using System;
+using System.IO;
+using System.Text;
+using System.Runtime.Serialization.Json;
+using System.Runtime.Serialization;
 
 namespace LinccerApi
 {
 
-
+    [DataContract]
     public class Environment
     {
 
@@ -13,14 +17,20 @@ namespace LinccerApi
         {
         }
 
-        public LocationInfo gps { get; set; }
-        //public LocationInfo network { get; set; }
+        [DataMember(Name = "gps")]
+        public LocationInfo Gps { get; set; }
 
-        override public string ToString(){
+        [DataMember(Name = "network")]
+        public LocationInfo Network { get; set; }
 
-             System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer ();
-            string json = oSerializer.Serialize (this);
-
+        public override string ToString ()
+        {
+            Network = null;
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer (this.GetType ());
+            MemoryStream ms = new MemoryStream ();
+            serializer.WriteObject (ms, this);
+            string json = Encoding.Default.GetString (ms.ToArray ());
+            
             return json;
         }
     }

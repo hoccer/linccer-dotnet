@@ -25,19 +25,16 @@ namespace LinccerApi
         public ClientConfig Config { get; set; }
 
         public LocationInfo Gps {
-            set { Environment.gps = value; }
+            set { Environment.Gps = value; }
+        }
+        public LocationInfo Network {
+            set { Environment.Network = value; }
         }
 
-        public void OnGpsChanged (Double lat, Double lon, int acc)
+        public void SubmitEnvironment ()
         {
-            Console.WriteLine ("OnGpsChanged");
-            
-            
+             using (var client = new WebClient ()) {
 
-            Environment.gps = new LocationInfo { latitude = lat, longitude = lon, accuracy = acc, timestamp = Utils.TimeNow };
-            
-            using (var client = new WebClient ()) {
-                
                 System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding ();
                 string uri = Config.ClientUri + "/environment";
                 client.UploadData (Sign (uri), "PUT", enc.GetBytes (Environment.ToString ()));
