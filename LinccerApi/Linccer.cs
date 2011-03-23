@@ -6,6 +6,8 @@ using System.Text;
 using System.Web;
 
 
+
+
 namespace LinccerApi
 {
 
@@ -17,6 +19,8 @@ namespace LinccerApi
         {
             this.Name = name;
             Environment = new Environment ();
+
+
         }
 
         public String Name { get; set; }
@@ -28,7 +32,8 @@ namespace LinccerApi
             set { Environment.Gps = value; }
         }
         public LocationInfo Network {
-            set { Environment.Network = value; }
+            set { //Environment.Network = value;
+            }
         }
 
         public void SubmitEnvironment ()
@@ -47,7 +52,6 @@ namespace LinccerApi
             System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer ();
             string sJSON = oSerializer.Serialize (payload);
             
-            Console.WriteLine (sJSON);
             using (var client = new WebClient ()) {
                 
                 System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding ();
@@ -56,10 +60,10 @@ namespace LinccerApi
             }
         }
 
-        public T Receive<T> (string mode) where T : new()
+        public T Receive<T> (string mode, string options) where T : new()
         {
             using (var client = new WebClient ()) {
-                string uri = Config.ClientUri + "/action/" + mode;
+                string uri = Config.ClientUri + "/action/" + mode ;//+ "?" + options ;
                 string json = client.DownloadString (Sign (uri));
                 if (json == null || json == "")
                     return default(T);
@@ -72,7 +76,8 @@ namespace LinccerApi
 
         private string Sign (string uri)
         {
-            uri += "?api_key=" + Config.ApiKey;
+            uri += uri.Contains("?") ? "&" : "?";
+            uri += "api_key=" + Config.ApiKey;
             uri += "&timestamp=" + Utils.TimeNow;
             HMACSHA1 hasher = new HMACSHA1 (Encoding.ASCII.GetBytes (Config.SharedSecret));
             byte[] signature = hasher.ComputeHash (Encoding.ASCII.GetBytes (uri));

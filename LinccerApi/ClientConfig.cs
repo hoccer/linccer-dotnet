@@ -46,5 +46,11 @@ namespace LinccerApi
             LinccerUri = "https://linccer-sandbox.hoccer.com/v3";
             
         }
+
+        public void UseProductionServers ()
+        {
+            LinccerUri = "https://linccer.hoccer.com/v3";
+
+        }
     }
 }

@@ -20,12 +20,11 @@ namespace LinccerApi
         [DataMember(Name = "gps")]
         public LocationInfo Gps { get; set; }
 
-        [DataMember(Name = "network")]
-        public LocationInfo Network { get; set; }
+        //[DataMember(Name = "network")]
+      //  public LocationInfo Network { get; set; }
 
         public override string ToString ()
         {
-            Network = null;
             DataContractJsonSerializer serializer = new DataContractJsonSerializer (this.GetType ());
             MemoryStream ms = new MemoryStream ();
             serializer.WriteObject (ms, this);

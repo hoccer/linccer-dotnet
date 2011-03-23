@@ -21,8 +21,9 @@ namespace MessageDemo
         {
             Linccer linccer = new Linccer ("Demo App");
             linccer.Config = new ClientConfig ();
-            linccer.Config.UseBetaServers();
+            linccer.Config.UseProductionServers();
             linccer.Gps = new LocationInfo { Latitude = 52.5157, Longitude = 13.409, Accuracy = 1000 };
+            linccer.Network = new LocationInfo { Latitude = 52.5157, Longitude = 13.409, Accuracy = 1000 };
             linccer.SubmitEnvironment();
 
             for (int i = 3; i > 0; i--) {
@@ -31,9 +32,9 @@ namespace MessageDemo
             }
             
             if (args.Length > 0) {
-                linccer.Share ("one-to-one", new Data { Message = args[0] });
+                linccer.Share ("one-to-many", new Data { Message = args[0] });
             } else {
-                Data receivedMessage = linccer.Receive<Data> ("one-to-one");
+                Data receivedMessage = linccer.Receive<Data> ("one-to-many","waiting=true");
                 if (receivedMessage == null)
                     System.Console.WriteLine ("Nothing received");
                 else
