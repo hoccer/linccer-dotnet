@@ -20,8 +20,8 @@ namespace LinccerApi
         [DataMember(Name = "gps")]
         public LocationInfo Gps { get; set; }
 
-        //[DataMember(Name = "network")]
-      //  public LocationInfo Network { get; set; }
+        [DataMember(Name = "network")]
+        public LocationInfo Network { get; set; }
 
         public override string ToString ()
         {

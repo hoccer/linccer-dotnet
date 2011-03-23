@@ -15,7 +15,7 @@ namespace LinccerApi
             Timestamp = Utils.TimeNow;
         }
 
- [DataMember(Name = "latitute")]
+        [DataMember(Name = "latitude")]
         public double Latitude { get; set; }
         [DataMember(Name = "longitude")]
         public double Longitude { get; set; }

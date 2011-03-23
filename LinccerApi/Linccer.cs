@@ -19,8 +19,8 @@ namespace LinccerApi
         {
             this.Name = name;
             Environment = new Environment ();
-
-
+            
+            
         }
 
         public String Name { get; set; }
@@ -32,14 +32,13 @@ namespace LinccerApi
             set { Environment.Gps = value; }
         }
         public LocationInfo Network {
-            set { //Environment.Network = value;
-            }
+            set { Environment.Network = value; }
         }
 
         public void SubmitEnvironment ()
         {
-             using (var client = new WebClient ()) {
-
+            using (var client = new WebClient ()) {
+                
                 System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding ();
                 string uri = Config.ClientUri + "/environment";
                 client.UploadData (Sign (uri), "PUT", enc.GetBytes (Environment.ToString ()));
@@ -47,7 +46,7 @@ namespace LinccerApi
         }
 
 
-        public void Share (String mode, Object payload)
+        public void Share (String mode, Object payload, String filename)
         {
             System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer ();
             string sJSON = oSerializer.Serialize (payload);
@@ -57,26 +56,32 @@ namespace LinccerApi
                 System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding ();
                 string uri = Config.ClientUri + "/action/" + mode;
                 client.UploadData (Sign (uri), "PUT", enc.GetBytes (sJSON));
+                client.UploadFile (Sign (uri), filename);
             }
         }
 
-        public T Receive<T> (string mode, string options) where T : new()
+        public T Receive<T> (string mode, string options, string filename) where T : new()
         {
             using (var client = new WebClient ()) {
-                string uri = Config.ClientUri + "/action/" + mode ;//+ "?" + options ;
+                string uri = Config.ClientUri + "/action/" + mode + "?" + options;
+                //try {
+                client.DownloadFile (Sign (uri), filename);
                 string json = client.DownloadString (Sign (uri));
                 if (json == null || json == "")
                     return default(T);
                 
                 System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer ();
                 return oSerializer.Deserialize<T[]> (json)[0];
+                //}catch(WebException e){
+                //  return default(T);
+                //}
             }
             
         }
 
         private string Sign (string uri)
         {
-            uri += uri.Contains("?") ? "&" : "?";
+            uri += uri.Contains ("?") ? "&" : "?";
             uri += "api_key=" + Config.ApiKey;
             uri += "&timestamp=" + Utils.TimeNow;
             HMACSHA1 hasher = new HMACSHA1 (Encoding.ASCII.GetBytes (Config.SharedSecret));
