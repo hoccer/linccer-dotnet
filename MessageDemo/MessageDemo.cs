@@ -31,14 +31,15 @@ namespace MessageDemo
                     System.Console.Write (i + "... ");
                     Thread.Sleep (1 * 1000);
                 }
-                linccer.Share ("one-to-many", new Data { Message = args[0] },"sharefile.txt");
+                linccer.Share ("one-to-many", new Data { Message = args[0] });
             } else {
                 System.Console.WriteLine ("Waiting for message");
-                    Data receivedMessage = linccer.Receive<Data> ("one-to-many", "waiting=true","receivefile.txt");
-                if (receivedMessage == null)
-                    System.Console.WriteLine ("Nothing received");
-                else
-                    System.Console.WriteLine (receivedMessage.Message);
+                Data receivedMessage;
+                do {
+                    receivedMessage = linccer.Receive<Data> ("one-to-many", "waiting=true");
+                } while (receivedMessage == null);
+
+                System.Console.WriteLine (receivedMessage.Message);
             }
         }
     }

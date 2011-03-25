@@ -1,28 +1,37 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="LinccerApi/Environment.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MessageDemo/MessageDemo.cs" ctype="Workbench">
     <Files>
-      <File FileName="LinccerApi/ClientConfig.cs" Line="31" Column="9" />
-      <File FileName="MessageDemo/MessageDemo.cs" Line="18" Column="22" />
-      <File FileName="LinccerApi/Linccer.cs" Line="32" Column="10" />
-      <File FileName="LinccerApi/LocationInfo.cs" Line="1" Column="1" />
-      <File FileName="LinccerApi/Utils.cs" Line="1" Column="1" />
-      <File FileName="LinccerApi/Environment.cs" Line="3" Column="35" />
+      <File FileName="MessageDemo/MessageDemo.cs" Line="18" Column="5" />
+      <File FileName="../mamtaTest/csharpTest/myClass.cs" Line="12" Column="34" />
+      <File FileName="LinccerApi/ClientConfig.cs" Line="8" Column="5" />
+      <File FileName="LinccerApi/Linccer.cs" Line="81" Column="1" />
+      <File FileName="LinccerApi/LocationInfo.cs" Line="10" Column="5" />
+      <File FileName="LinccerApi/Environment.cs" Line="24" Column="7" />
+      <File FileName="LinccerApi/Utils.cs" Line="8" Column="5" />
+      <File FileName="../mamtaPro/README" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="HoccerDemo" expanded="True" />
-          <Node name="LinccerApi" expanded="True">
-            <Node name="References" selected="True" />
-          </Node>
+          <Node name="LinccerApi" expanded="True" />
           <Node name="MessageDemo" expanded="True">
-            <Node name="References" expanded="True" />
+            <Node name="MessageDemo.cs" selected="True" />
           </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="HoccerDemo" expanded="True" />
+          <Node name="LinccerApi" expanded="True">
+            <Node name="LinccerApi" expanded="True" />
+          </Node>
+          <Node name="MessageDemo" expanded="True">
+            <Node name="MessageDemo" expanded="True">
+              <Node name="MessageDemo.MessageDemo" selected="True" />
+            </Node>
+          </Node>
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
