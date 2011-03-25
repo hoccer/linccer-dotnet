@@ -19,9 +19,9 @@ namespace MessageDemo
     {
         public static void Main (string[] args)
         {
-            Linccer linccer = new Linccer ("Demo App");
-            linccer.Config = new ClientConfig ();
-            linccer.Config.UseProductionServers ();
+            Linccer linccer = new Linccer ();
+            linccer.Config = new ClientConfig ("C# Message Demo");
+            linccer.Config.UseSandboxServers ();
             linccer.Gps = new LocationInfo { Latitude = 52.5157, Longitude = 13.409, Accuracy = 1000 };
             linccer.SubmitEnvironment ();
             
@@ -38,7 +38,7 @@ namespace MessageDemo
                 do {
                     receivedMessage = linccer.Receive<Data> ("one-to-many", "waiting=true");
                 } while (receivedMessage == null);
-
+                
                 System.Console.WriteLine (receivedMessage.Message);
             }
         }

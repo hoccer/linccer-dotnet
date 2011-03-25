@@ -8,9 +8,9 @@ namespace LinccerApi
     public class ClientConfig
     {
 
-        public ClientConfig ()
+        public ClientConfig (string applicationName)
         {
-
+            ApplicationName = applicationName;
             ClientId = Guid.NewGuid().ToString();
             UseSandboxServers ();
             useDemoApiKey ();
@@ -24,15 +24,20 @@ namespace LinccerApi
 
         public string ClientId { get; set; }
 
+        public string FileCacheUri{get;set;}
+
         public string ApiKey { get; set; }
 
         public string SharedSecret { get; set; }
+
+        public string ApplicationName{get;set;}
 
         
 
         public void UseBetaServers ()
         {
             LinccerUri = "http://linccer-beta.hoccer.com/v3";
+            FileCacheUri = "http://filecache-beta.hoccer.com/v3";
             
         }
         private void useDemoApiKey ()
@@ -44,12 +49,14 @@ namespace LinccerApi
         public void UseSandboxServers ()
         {
             LinccerUri = "https://linccer-sandbox.hoccer.com/v3";
+            FileCacheUri = "http://filecache-beta.hoccer.com/v3";
             
         }
 
         public void UseProductionServers ()
         {
             LinccerUri = "https://linccer.hoccer.com/v3";
+            FileCacheUri = "http://filecache-beta.hoccer.com/v3";
 
         }
     }

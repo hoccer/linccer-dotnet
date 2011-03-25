@@ -43,6 +43,9 @@
     <Compile Include="LocationInfo.cs" />
     <Compile Include="ClientConfig.cs" />
     <Compile Include="Utils.cs" />
+    <Compile Include="FileCache.cs" />
+    <Compile Include="CloudService.cs" />
+    <Compile Include="streamableContent.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
