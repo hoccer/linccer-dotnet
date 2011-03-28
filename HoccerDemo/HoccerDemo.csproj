@@ -31,8 +31,8 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="HoccerDemo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LinccerApi\LinccerApi.csproj">

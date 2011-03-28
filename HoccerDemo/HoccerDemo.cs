@@ -4,7 +4,7 @@ using LinccerApi;
 
 namespace HoccerDemo
 {
-    class MainClass
+    class HoccerDemo
     {
         public static void Main (string[] args)
         {
@@ -22,6 +22,7 @@ namespace HoccerDemo
             string uri = cache.Store(data,300);
 
             Console.WriteLine(uri);
+            cache.Fetch(uri,"test");
         }
     }
 }
