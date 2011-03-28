@@ -51,7 +51,7 @@ namespace LinccerApi
             }
         }
 
-        public T Receive<T> (string mode, string options) where T : new()
+        public T Receive<T> (string mode, string options = "") where T : new()
         {
             using (var client = new WebClient ()) {
                 
