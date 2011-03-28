@@ -27,8 +27,8 @@ namespace HoccerDemo
             
             Hoc h1 = new Hoc();
             h1.Sender.ClientId = "keks";
-            Data d=new Data{Type = "image"};
-            h1.DataList.Add (d);
+            HocData d= new HocData{Type = "image", Content = "hallo"};
+            h1.DataList = (d);
 
             DataContractJsonSerializer serializer = new DataContractJsonSerializer (h1.GetType ());
             MemoryStream ms = new MemoryStream ();
@@ -39,7 +39,7 @@ namespace HoccerDemo
 
             ms.Position = 0;
             Hoc h2 = (Hoc) serializer.ReadObject(ms);
-            Console.WriteLine("the hoc: " + h2.DataList[0].Type);
+            Console.WriteLine("the hoc: " + h2.DataList.GetType() );
 
             for (int i = 3; i > 0; i--) {
                 System.Console.Write (i + "... ");

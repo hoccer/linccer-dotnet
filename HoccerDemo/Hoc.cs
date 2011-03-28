@@ -9,16 +9,16 @@ namespace HoccerDemo
     {
         public Hoc ()
         {
-          Sender =new Device();
-            DataList = new List<Data>();
+            Sender = new Device ();
+            //DataList = new List<HocData> ();
         }
 
         [DataMember(Name = "sender")]
         public Device Sender { get; set; }
 
         [DataMember(Name = "data")]
-        public List<Data> DataList { get; set; }
-        
+        public HocData DataList { get; set; }
+
     }
 
     [DataContract]
@@ -29,32 +29,25 @@ namespace HoccerDemo
 
         [DataMember(Name = "name")]
         public string Name { get; set; }
-        
+
     }
 
     [DataContract]
-    public class Data
+    public class HocData
     {
-        public Data ()
+        public HocData ()
         {
         }
         [DataMember(Name = "type")]
         public string Type { get; set; }
-    }
-    
-    /*
-    [DataContract]
-    public class InlineData : Data
-    {
+
         [DataMember(Name = "content")]
         public string Content { get; set; }
-    }
 
-    [DataContract]
-    public class ExternalData : Data
-    {
         [DataMember(Name = "uri")]
         public string Uri { get; set; }
-    }*/    
+    }
+
+
 }
 
