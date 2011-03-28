@@ -49,14 +49,14 @@ namespace LinccerApi
         public void UseSandboxServers ()
         {
             LinccerUri = "https://linccer-sandbox.hoccer.com/v3";
-            FileCacheUri = "http://filecache-beta.hoccer.com/v3";
+            FileCacheUri = "https://filecache-sandbox.hoccer.com/v3";
             
         }
 
         public void UseProductionServers ()
         {
             LinccerUri = "https://linccer.hoccer.com/v3";
-            FileCacheUri = "http://filecache-beta.hoccer.com/v3";
+            FileCacheUri = "https://filecache.hoccer.com/v3";
 
         }
     }

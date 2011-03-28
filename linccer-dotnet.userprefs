@@ -1,33 +1,34 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="LinccerApi/FileCache.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HoccerDemo/Main.cs" ctype="Workbench">
     <Files>
       <File FileName="LinccerApi/Linccer.cs" Line="1" Column="1" />
       <File FileName="LinccerApi/ClientConfig.cs" Line="8" Column="5" />
-      <File FileName="MessageDemo/MessageDemo.cs" Line="22" Column="45" />
+      <File FileName="MessageDemo/MessageDemo.cs" Line="27" Column="13" />
       <File FileName="LinccerApi/LocationInfo.cs" Line="10" Column="5" />
       <File FileName="LinccerApi/Environment.cs" Line="12" Column="5" />
       <File FileName="LinccerApi/Utils.cs" Line="8" Column="5" />
-      <File FileName="LinccerApi/streamableContent.cs" Line="4" Column="6" />
       <File FileName="LinccerApi/CloudService.cs" Line="29" Column="1" />
-      <File FileName="LinccerApi/FileCache.cs" Line="8" Column="5" />
+      <File FileName="LinccerApi/FileCache.cs" Line="20" Column="10" />
+      <File FileName="HoccerDemo/Main.cs" Line="16" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="LinccerApi" expanded="True">
-            <Node name="FileCache.cs" selected="True" />
+          <Node name="HoccerDemo" expanded="True">
+            <Node name="Main.cs" selected="True" />
           </Node>
+          <Node name="LinccerApi" expanded="True" />
           <Node name="MessageDemo" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True">
-          <Node name="HoccerDemo" expanded="True" />
+          <Node name="HoccerDemo" expanded="True" selected="True">
+            <Node name="HoccerDemo" expanded="True" />
+          </Node>
           <Node name="LinccerApi" expanded="True">
-            <Node name="LinccerApi" expanded="True">
-              <Node name="LinccerApi.LocationInfo" selected="True" />
-            </Node>
+            <Node name="LinccerApi" expanded="True" />
           </Node>
           <Node name="MessageDemo" expanded="True">
             <Node name="MessageDemo" expanded="True" />

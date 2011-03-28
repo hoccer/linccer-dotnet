@@ -29,7 +29,8 @@ namespace LinccerApi
         public void SubmitEnvironment ()
         {
             using (var client = new WebClient ()) {
-                
+
+                client.Headers.Add (HttpRequestHeader.UserAgent, Config.ApplicationName);
                 System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding ();
                 string uri = Config.ClientUri + "/environment";
                 client.UploadData (Sign (uri), "PUT", enc.GetBytes (Environment.ToString ()));

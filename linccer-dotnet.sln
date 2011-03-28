@@ -28,7 +28,7 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItems = $0
-		$0.Item = MessageDemo\MessageDemo.csproj
+		$0.Item = HoccerDemo\HoccerDemo.csproj
 		Policies = $1
 		$1.DotNetNamingPolicy = $2
 		$2.DirectoryNamespaceAssociation = None
@@ -52,6 +52,6 @@ Global
 		$5.scope = text/x-csharp
 		$1.StandardHeader = $6
 		$6.Text = 
-		$6.inheritsSet = MITX11License
+		$6.inheritsSet = Apache2License
 	EndGlobalSection
 EndGlobal
