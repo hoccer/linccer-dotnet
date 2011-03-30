@@ -2,6 +2,7 @@
 using System;
 using System.Net;
 using System.Security.Cryptography;
+using Newtonsoft.Json;
 using System.Text;
 using System.Web;
 
@@ -39,9 +40,8 @@ namespace LinccerApi
 
         public void Share (String mode, Object payload)
         {
-            System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer ();
-            string sJSON = oSerializer.Serialize (payload);
-            
+            string sJSON = JsonConvert.SerializeObject (payload, Formatting.None, Utils.DefaultSerializerSettings);
+
             using (var client = new WebClient ()) {
                 
                 client.Headers.Add (HttpRequestHeader.UserAgent, Config.ApplicationName);
@@ -61,9 +61,8 @@ namespace LinccerApi
                     string json = client.DownloadString (Sign (uri));
                     if (json == null || json == "")
                         return default(T);
-                    
-                    System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer ();
-                    return oSerializer.Deserialize<T[]> (json)[0];
+
+                    return JsonConvert.DeserializeObject<T[]> (json, Utils.DefaultSerializerSettings)[0];
                 } catch (WebException e) {
                     return default(T);
                 }

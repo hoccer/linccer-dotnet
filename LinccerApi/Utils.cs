@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace LinccerApi
 {
@@ -24,6 +26,20 @@ namespace LinccerApi
                 dest.Write (buffer, 0, n);
             } while (n != 0);
         }
-        
+
+        public static JsonSerializerSettings DefaultSerializerSettings {
+
+            get {
+                JsonSerializerSettings settings = new JsonSerializerSettings ();
+                settings.Error = delegate(object sender, Newtonsoft.Json.Serialization.ErrorEventArgs args) {
+                    Console.WriteLine("error: " + sender);
+                };
+                
+                settings.ContractResolver = new CamelCasePropertyNamesContractResolver ();
+                settings.DefaultValueHandling = DefaultValueHandling.Ignore;
+                
+                return settings;
+            }
+        }
     }
 }
