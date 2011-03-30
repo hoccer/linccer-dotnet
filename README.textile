@@ -1,0 +1,71 @@
+h1. Linccer API for .Net
+
+h2. Description  
+
+The .Net Linccer binding provides a non threaded API to communicate with
+the RESTful Linccer Services:
+
+bc.. 
+Linccer linccer = new Linccer(new ClientDescription("Demo App"));
+
+// publish a gps position (lat, long, accuracy)
+linccer.onGpsChanged(23.44, 102.13, 100); 
+
+// safely pass data to an other client here and now
+linccer.share("one-to-one", new JSONObject("{ 'demo' : 'arbitrary json' }"));
+
+// safely receive passed data from an other client here and now
+JSONObject payload = linccer.receive("one-to-one");
+
+p. More examples can soon be found in the samples folder.
+
+h2. Install and try out
+
+* download our "prebuild JAR":https://github.com/downloads/hoccer/java-api/java-linccer-client-v0.4.jar and "dependency zip":https://github.com/downloads/hoccer/java-api/java-flavored-api-dependencies.zip containing JAR files for Apache HttpClient and JSON
+* write some java code using the Linccer (get inspired by "samples":https://github.com/hoccer/java-api/tree/master/sample/com/hoccer/playground)
+* compile and run with JAR's in classpath
+
+h2. Deployment
+
+* obtain your own API Key from "developer.hoccer.com":http://developer.hoccer.com
+* use a ClientConfig constructor apiKey and sharedSecret parameters
+* change service base from sandbox.hoccer.com to hoccer.com
+
+h2. Remarks
+
+* The environment updates (gps, network, bssid's,...) must be updated regular (at least every ten seconds).
+* To transfer data between two partners their share and receive must use the same mode (eg. one-to-one or one-to-many)
+* use linccer.measureNetworkLatency() to gain performance in fast networks and enhance linccing in slow networks
+
+h2. Additional Features
+
+h3. Environment Updates
+
+Make sure the Linccer has as much environment data of the client as possible. Use all available sensors. If you implement for a stationary devices, you could read gps, wifi bssids and the like from a config file.
+
+bc.. 
+// compute current network latency for optimal performance
+linccer.measureNetworkLatency();
+
+// publish gps position (lat, long, accuracy)
+linccer.onGpsChanged(23.44, 102.13, 100);
+
+// publish cell-tower/wifi obtained position (lat, long, accuracy)
+linccer.onNetworkChanged(23.44, 102.13, 100);
+
+// publish visible wifi networks (bssids)
+linccer.onWifiChanged(new String[] { "00:22:3F:11:5A:2E", "4C:12:3F:11:5A:2C" });
+
+h3. Wait for data
+
+The default behavior of Linccer makes sure you get a "no content" message for "lonely receives".
+When receiving in 'one-to-many' mode, it's possible to add the option "waiting=true" to hold the connection until content is available. This is useful for devices which automaticly want to receive all distributed data (eg. photowall, party-music-player, geo chat, ...).
+
+h2. Licensing
+
+This code is dual licensed (commercial and GPL v3). See LICENSE file for more informations about the GPL. Alternative licensing without the obligations of the GPL is available upon request.
+
+h2. Further Reading
+
+Please check the general "Linccer documentation":http://developer.hoccer.com/about_api.html.
+
