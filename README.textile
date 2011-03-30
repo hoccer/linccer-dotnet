@@ -6,10 +6,10 @@ The .Net Linccer binding provides a non threaded API to communicate with
 the RESTful Linccer Services:
 
 bc.. 
-Linccer linccer = new Linccer(new ClientDescription("Demo App"));
+ Linccer linccer = new Linccer ();
 
 // publish a gps position (lat, long, accuracy)
-linccer.onGpsChanged(23.44, 102.13, 100); 
+linccer.Gps = new LocationInfo { Latitude = 52.5157, Longitude = 13.409, Accuracy = 1000 };
 
 // safely pass data to an other client here and now
 linccer.share("one-to-one", new JSONObject("{ 'demo' : 'arbitrary json' }"));
