@@ -24,21 +24,21 @@ p. More examples can be found in the Demo projects.
 
 h2. Install and try out
 
-* download our "prebuild JAR":https://github.com/downloads/hoccer/java-api/java-linccer-client-v0.4.jar and "dependency zip":https://github.com/downloads/hoccer/java-api/java-flavored-api-dependencies.zip containing JAR files for Apache HttpClient and JSON
-* write some java code using the Linccer (get inspired by "samples":https://github.com/hoccer/java-api/tree/master/sample/com/hoccer/playground)
-* compile and run with JAR's in classpath
+* download our "prebuild binaries":https://github.com/downloads/hoccer/linccer-dotnet/linccer-dotnet.zip
+* write some java code using the Linccer (get inspired by the Demos)
+* compile and run
 
 h2. Deployment
 
 * obtain your own API Key from "developer.hoccer.com":http://developer.hoccer.com
 * use a ClientConfig constructor apiKey and sharedSecret parameters
-* change service base from sandbox.hoccer.com to hoccer.com
+* switch to production servers with @linccer.Config.UseProductionServers ();@
 
 h2. Remarks
 
 * The environment updates (gps, network, bssid's,...) must be updated regular (at least every ten seconds).
 * To transfer data between two partners their share and receive must use the same mode (eg. one-to-one or one-to-many)
-* use linccer.measureNetworkLatency() to gain performance in fast networks and enhance linccing in slow networks
+* both clients must use the same server (eg. Production or Sandbox)
 
 h2. Additional Features
 

@@ -47,28 +47,43 @@ namespace HoccerDemo
         public static void Main (string[] args)
         {
             ClientConfig config = new ClientConfig ("C# Hoccer Demo");
-            config.UseProductionServers ();
+            config.UseProductionServers (); // enables communication to real Hoccer Clients (iOS & Android)
             
             Linccer linccer = new Linccer ();
             linccer.Config = config;
+
+            // set geo position (must be changed to work on other locations than Molkenmarkt 2 in Berlin, Germany)
             linccer.Gps = new LocationInfo { Latitude = 52.5157, Longitude = 13.409, Accuracy = 1000 };
             linccer.SubmitEnvironment ();
-            
+
+            // inialize filecache for temporary up- and downloading large files (not used jet)
             FileCache cache = new FileCache ();
             cache.Config = config;
 
+            // countdown to not miss the time when the drag-in or -out gesture must take place on the mobile
             for (int i = 3; i > 0; i--) {
                 System.Console.Write (i + "... ");
                 Thread.Sleep (1 * 1000);
             }
             
             if (args.Length > 0) {
-                
-                linccer.Share ("one-to-many", "Hello from c#");
+
+                // create a plain message
+                Hoc hoc = new Hoc ();
+                hoc.DataList.Add(
+                  new HocData {Content = args[0], Type = "text/plain"}
+                );
+
+                // share it 1:1, in the Hoccer mobile App, you need to perform a drag in
+                // gesture to receive the message  (one-to-many is throw/catch)
+                linccer.Share ("one-to-one", hoc);
+
             } else {
                 System.Console.WriteLine ("Waiting for sender");
                 Hoc hoc;
 
+                // receive 1:1, in the Hoccer mobile App, you need to perform a drag out
+                // gesture to send something to this client (one-to-many is throw/catch)
                 hoc = linccer.Receive<Hoc> ("one-to-one");
                 
                 if (hoc == null)

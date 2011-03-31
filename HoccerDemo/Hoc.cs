@@ -40,6 +40,8 @@ namespace HoccerDemo
     {
         public Hoc ()
         {
+            Sender = new Device();
+            DataList = new List<HocData>();
         }
 
         public Device Sender { get; set; }
@@ -56,6 +58,14 @@ namespace HoccerDemo
 
     public class Device
     {
+        public Device(){
+            ClientId = Guid.NewGuid ().ToString ();
+        }
+
+        public Device(string clientId){
+            ClientId = clientId;
+        }
+
         [JsonProperty("client-id")]
         public string ClientId { get; set; }
 

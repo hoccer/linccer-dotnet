@@ -28,7 +28,7 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItems = $0
-		$0.Item = MessageDemo\MessageDemo.csproj
+		$0.Item = HoccerDemo\HoccerDemo.csproj
 		Policies = $1
 		$1.DotNetNamingPolicy = $2
 		$2.DirectoryNamespaceAssociation = None
