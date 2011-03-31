@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinccerApi", "LinccerApi\Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoccerDemo", "HoccerDemo\HoccerDemo.csproj", "{35BAC5C3-FF33-4AB3-AB6B-E625C2278A65}"
 EndProject
+Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Pakete", "Pakete.mdproj", "{D3BAC736-292F-46F9-AA4A-7A8365C2F3E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{907F742E-1ABF-4F5E-AB73-9CCB05669400}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{907F742E-1ABF-4F5E-AB73-9CCB05669400}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{907F742E-1ABF-4F5E-AB73-9CCB05669400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3BAC736-292F-46F9-AA4A-7A8365C2F3E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3BAC736-292F-46F9-AA4A-7A8365C2F3E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6E77E24-BBC0-4A8B-B5D6-9DC14800A65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D6E77E24-BBC0-4A8B-B5D6-9DC14800A65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6E77E24-BBC0-4A8B-B5D6-9DC14800A65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
