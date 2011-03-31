@@ -30,7 +30,9 @@ along with Linccer .Net-API. If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Net;
 using System.Security.Cryptography;
+using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System.Text;
 using System.Web;
 
@@ -90,7 +92,7 @@ namespace LinccerApi
                     if (json == null || json == "")
                         return default(T);
 
-                    return JsonConvert.DeserializeObject<T[]> (json, Utils.DefaultSerializerSettings)[0];
+                    return JsonConvert.DeserializeObject<List<T>> (json, Utils.DefaultSerializerSettings)[0];
                 } catch (WebException e) {
                     return default(T);
                 }

@@ -21,7 +21,7 @@ namespace MessageDemo
         {
             Linccer linccer = new Linccer ();
             linccer.Config = new ClientConfig ("C# Message Demo");
-            linccer.Config.UseSandboxServers ();
+            linccer.Config.UseBetaServers ();
             linccer.Gps = new LocationInfo { Latitude = 52.5157, Longitude = 13.409, Accuracy = 1000 };
             linccer.SubmitEnvironment ();
             

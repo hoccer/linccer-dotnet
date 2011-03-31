@@ -64,11 +64,11 @@ namespace HoccerDemo
             
             if (args.Length > 0) {
                 
-                linccer.Share ("one-to-many", null);
+                linccer.Share ("one-to-many", "Hello from c#");
             } else {
                 System.Console.WriteLine ("Waiting for sender");
                 Hoc hoc;
-                
+
                 hoc = linccer.Receive<Hoc> ("one-to-one");
                 
                 if (hoc == null)
