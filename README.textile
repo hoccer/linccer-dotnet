@@ -7,17 +7,20 @@ the RESTful Linccer Services:
 
 bc.. 
  Linccer linccer = new Linccer ();
+linccer.Config = new ClientConfig ("C# Demo");
 
-// publish a gps position (lat, long, accuracy)
+// publish a gps position
 linccer.Gps = new LocationInfo { Latitude = 52.5157, Longitude = 13.409, Accuracy = 1000 };
+linccer.SubmitEnvironment ();
 
-// safely pass data to an other client here and now
-linccer.share("one-to-one", new JSONObject("{ 'demo' : 'arbitrary json' }"));
+// pass data to an other client here and now
+MyDataClass data = new MyDataClass(...); 
+linccer.share("one-to-one", data);
 
-// safely receive passed data from an other client here and now
-JSONObject payload = linccer.receive("one-to-one");
+// receive passed data from an other client here and now
+MyDataClass receivedData = linccer.receive<MyDataClass>("one-to-one");
 
-p. More examples can soon be found in the samples folder.
+p. More examples can be found in the Demo projects.
 
 h2. Install and try out
 
@@ -41,25 +44,20 @@ h2. Additional Features
 
 h3. Environment Updates
 
-Make sure the Linccer has as much environment data of the client as possible. Use all available sensors. If you implement for a stationary devices, you could read gps, wifi bssids and the like from a config file.
-
-bc.. 
-// compute current network latency for optimal performance
-linccer.measureNetworkLatency();
-
-// publish gps position (lat, long, accuracy)
-linccer.onGpsChanged(23.44, 102.13, 100);
-
-// publish cell-tower/wifi obtained position (lat, long, accuracy)
-linccer.onNetworkChanged(23.44, 102.13, 100);
-
-// publish visible wifi networks (bssids)
-linccer.onWifiChanged(new String[] { "00:22:3F:11:5A:2E", "4C:12:3F:11:5A:2C" });
+Make sure the Linccer has as much environment data of the client as possible. Use all available sensors. If you implement for a stationary devices, you should read gps, wifi bssids and the like from a config file.
 
 h3. Wait for data
 
 The default behavior of Linccer makes sure you get a "no content" message for "lonely receives".
 When receiving in 'one-to-many' mode, it's possible to add the option "waiting=true" to hold the connection until content is available. This is useful for devices which automaticly want to receive all distributed data (eg. photowall, party-music-player, geo chat, ...).
+
+h2. Trouble Shooting
+
+h3. Authorization Problems on Ubuntu/Linux?
+
+bc.. 
+$ sudo mozroots --machine --import --sync
+$ mozroots --sync --import
 
 h2. Licensing
 

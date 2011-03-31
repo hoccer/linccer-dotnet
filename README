@@ -1,6 +1,0 @@
-
-
-# Authorization Problem?
-
-$ sudo mozroots --machine --import --sync
-$ mozroots --sync --import
