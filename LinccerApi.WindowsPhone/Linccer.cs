@@ -129,7 +129,9 @@ namespace LinccerApi.WindowsPhone
 				if (json == null || json == "")
 					callback(default(T));
 
-				callback(JsonConvert.DeserializeObject<List<T>>(json, Utils.DefaultSerializerSettings)[0]);
+				var result = JsonConvert.DeserializeObject<List<T>>(json, Utils.DefaultSerializerSettings)[0];
+
+				callback(result);
 			});
         }
     }
