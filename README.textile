@@ -1,4 +1,4 @@
-h1. Linccer API for .Net
+h1. Linccer API for .Net / WindowsPhone
 
 h2. Description  
 
