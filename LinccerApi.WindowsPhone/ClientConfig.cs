@@ -29,7 +29,7 @@ along with Linccer .Net-API. If not, see <http://www.gnu.org/licenses/>.
 
 using System;
 
-namespace LinccerApi
+namespace LinccerApi.WindowsPhone
 {
 
 

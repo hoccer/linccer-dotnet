@@ -33,7 +33,7 @@ using System.Text;
 using System.Net;
 using System.Collections.Generic;
 
-namespace LinccerApi
+namespace LinccerApi.WindowsPhone
 {
     public class CloudService
     {

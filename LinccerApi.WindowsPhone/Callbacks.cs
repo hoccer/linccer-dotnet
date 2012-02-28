@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace LinccerApi
+namespace LinccerApi.WindowsPhone
 {
 	public delegate void FileCacheStoreCallback(String uri);
 	public delegate void LinccerReceiveCallback<T>(T obj);

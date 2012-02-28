@@ -38,7 +38,7 @@ using RestSharp;
 using System.Linq;
 using System.Diagnostics;
 
-namespace LinccerApi
+namespace LinccerApi.WindowsPhone
 {
 
     
@@ -49,7 +49,7 @@ namespace LinccerApi
             Environment = new Environment ();
         }
 
-        public LinccerApi.Environment Environment { get; set; }
+        public Environment Environment { get; set; }
 
         public LocationInfo Gps {
             set { Environment.Gps = value; }

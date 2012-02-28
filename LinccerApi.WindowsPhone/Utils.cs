@@ -32,7 +32,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace LinccerApi
+namespace LinccerApi.WindowsPhone
 {
 
 

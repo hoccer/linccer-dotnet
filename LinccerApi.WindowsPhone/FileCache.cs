@@ -32,7 +32,7 @@ using System.Net;
 using System.IO;
 using RestSharp;
 
-namespace LinccerApi
+namespace LinccerApi.WindowsPhone
 {
 
 

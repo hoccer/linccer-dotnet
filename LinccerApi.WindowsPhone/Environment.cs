@@ -33,7 +33,7 @@ using System.Text;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace LinccerApi
+namespace LinccerApi.WindowsPhone
 {
 
     public class Environment

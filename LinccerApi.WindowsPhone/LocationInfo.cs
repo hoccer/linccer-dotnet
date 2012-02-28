@@ -30,7 +30,7 @@ along with Linccer .Net-API. If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Runtime.Serialization;
 
-namespace LinccerApi
+namespace LinccerApi.WindowsPhone
 {
 
 
