@@ -53,7 +53,8 @@ namespace HoccerDemo
             linccer.Config = config;
 
             // set geo position (must be changed to work on other locations than Molkenmarkt 2 in Berlin, Germany)
-            linccer.Gps = new LocationInfo { Latitude = 52.5157, Longitude = 13.409, Accuracy = 1000 };
+			//41.38690, 2.16532
+			linccer.Gps = new LocationInfo { Latitude = 41.38690, Longitude = 2.16532, Accuracy = 1000 };
             linccer.SubmitEnvironment ();
 
             // inialize filecache for temporary up- and downloading large files (not used jet)
@@ -71,7 +72,7 @@ namespace HoccerDemo
                 // create a plain message
                 Hoc hoc = new Hoc ();
                 hoc.DataList.Add(
-                  new HocData {Content = args[0], Type = "text/plain"}
+                  new HocData {Content = "yaya", Type = "text/plain"}
                 );
 
                 // share it 1:1, in the Hoccer mobile App, you need to perform a drag in
