@@ -79,8 +79,11 @@ namespace LinccerApi.WindowsPhone
         }
         private void useDemoApiKey ()
         {
-            ApiKey = "e101e890ea97012d6b6f00163e001ab0";
-            SharedSecret = "JofbFD6w6xtNYdaDgp4KOXf/k/s=";
+            //ApiKey = "e101e890ea97012d6b6f00163e001ab0";
+			//SharedSecret = "JofbFD6w6xtNYdaDgp4KOXf/k/s=";
+
+			ApiKey = "211d2970448d012f868400163e001ab0";
+			SharedSecret = "khAdYNp19OiEiEczmZIrHW59Neo=";
         }
 
         public void UseSandboxServers ()

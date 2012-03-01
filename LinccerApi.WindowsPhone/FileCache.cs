@@ -43,7 +43,7 @@ namespace LinccerApi.WindowsPhone
         }
 
 
-        public void Store (Stream data, int secondsUntilExipred, FileCacheStoreCallback callback)
+        public void Store (byte[] data, int secondsUntilExipred, FileCacheStoreCallback callback)
         {
 			var guid = Guid.NewGuid().ToString();
 			var uri = Config.FileCacheUri + "/" + guid;
@@ -58,13 +58,37 @@ namespace LinccerApi.WindowsPhone
 				Method = Method.PUT
 			};
 
-			request.AddHeader(HttpRequestHeader.UserAgent.ToString(), Config.ApplicationName);
-			request.AddParameter("expires_in", secondsUntilExipred);
-			request.AddBody(data);
+			//request.AddHeader(HttpRequestHeader.UserAgent.ToString(), Config.ApplicationName);
+			//request.AddHeader(HttpRequestHeader.ContentType.ToString(), "image/jpeg");
+			//request.AddParameter("expires_in", secondsUntilExipred);
+			//request.AddFile("image/jpeg", data,"sample","image/jpeg");
+			//var requestStream = new MemoryStream();
+
+			//using (var ms = new MemoryStream(data))
+			//{
+			//    ms.CopyTo(requestStream, data.Length);//doesn't matter whether I add second param or not
+			//    ms.Flush();
+			//    ms.Close();
+			//}
+
+			//request.AddFile("image/jpeg", (requestStream) =>
+			//{
+			//    using (var ms = new MemoryStream(data))
+			//    {
+			//        ms.CopyTo(requestStream, data.Length);//doesn't matter whether I add second param or not
+			//        ms.Flush();
+			//        ms.Close();
+			//    }
+			//}, "sample", "image/jpeg");
+
+			//request.AddParameter("image/jpeg", "", ParameterType.RequestBody);
+			request.AddFile("image/jpeg", data, "file");
+
+			client.UploadRaw = true;
 
 			client.ExecuteAsync(request, (response, req) =>
 			{
-				callback(guid);
+				callback(uri);
 			});
             
         }
