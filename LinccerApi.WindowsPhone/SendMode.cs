@@ -11,8 +11,19 @@ using System.Windows.Shapes;
 
 namespace LinccerApi.WindowsPhone
 {
-	public delegate void FileCacheStoreCallback(String uri);
-	public delegate void FileCacheGetCallback(byte[] data);
-	public delegate void LinccerReceiveCallback<T>(T obj);
-	public delegate void LinccerContentCallback(string content);
+	public enum SendMode
+	{
+		OneToOne,
+		OneToMany
+	}
+
+	public class SendModeString
+	{
+		public static string ConvertSendModeToString(SendMode mode)
+		{
+			if(mode == SendMode.OneToOne) return "one-to-one";
+
+			return "one-to-many";
+		}
+	}
 }
