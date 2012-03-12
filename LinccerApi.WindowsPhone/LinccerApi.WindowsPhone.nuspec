@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Linccer.WindowsPhone</id>
+    <version>1.0.0</version>
+    <title>Linccer.WindowsPhone</title>
+    <authors>jjchiw</authors>
+    <owners>jjchiw</owners>
+    <licenseUrl>https://github.com/jjchiw/linccer-dotnet/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jjchiw/linccer-dotnet</projectUrl>
+    <iconUrl>https://es.gravatar.com/userimage/10175671/0d7410096dea6258d536b2f84c6e707d.jpg?size=32</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Linccer for Windows Phone</description>
+    <releaseNotes>First Release</releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <tags>linccer, windowsphone</tags>
+  </metadata>
+</package>
